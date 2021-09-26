@@ -1,5 +1,7 @@
 # csq
-This repository provides a way for thermal videos acquired by a FLIR camera to be read in Python. Only files with the .csq extension are compatible with this code.
+This repository provides a way for thermal videos acquired by a FLIR camera to be read in Python. Only files with the ```.csq``` extension are compatible with this code.
+
+The ```.csq``` file format stores each image in the thermal video in 16-bit binary form. Using some calibration constants from the thermal camera, the temperature data can be calculated, allowing the image to be expressed in degrees Celcius. With this repository, you can directly obtain the temperature values without having to worry about this conversion! 
 
 ## Installation
 Coming soon... 
@@ -16,3 +18,26 @@ path = '/Users/tuthill/Downloads/analysis/videos/cat.csq'
 reader = CSQReader(path)
 ```
 
+To read the a frame of the video, you can use the ```next_frame()``` function. Let's read and plot the first frame: 
+
+```python
+import seaborn as sns 
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+
+def plot_thermal(frame): 
+
+    sns.set_style('ticks')
+    fig = plt.figure()
+    ax = plt.gca()
+    im = plt.imshow(frame, cmap = 'hot')
+    divider = make_axes_locatable(ax)
+    cax = divider.append_axes("right", size="5%", pad=0.05)
+    cbar = plt.colorbar(im, cax = cax)
+    cbar.ax.set_ylabel('Temperature ($^{\circ}$C)', fontsize = 14)
+    sns.despine()
+    plt.show()
+
+frame = reader.next_frame()
+plot_thermal(frame)
+```
