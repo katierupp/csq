@@ -75,10 +75,12 @@ class CSQReader():
         nframes = 0
         while self.skip_frame():
             nframes+=1
-
-        self.reader.seek(0)
+        self.reset()
 
         return nframes
+    
+    def reset(self):
+        self.reader.seek(0)
 
     def close(self):
         self.reader.close()
