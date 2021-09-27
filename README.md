@@ -18,7 +18,7 @@ path = '/Users/tuthill/Downloads/analysis/videos/cat.csq'
 reader = CSQReader(path)
 ```
 
-To read the a frame of the video, you can use the ```next_frame()``` function. Let's read and plot the first frame: 
+To read a frame of the video, you can use the ```next_frame()``` function. Let's read and plot the first frame: 
 
 ```python
 import seaborn as sns 
