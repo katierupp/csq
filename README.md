@@ -41,3 +41,12 @@ def plot_thermal(frame):
 frame = reader.next_frame()
 plot_thermal(frame)
 ```
+
+## References 
+This project was inspired by the Thermimage package, which allows for FLIR thermal image analysis in R: 
+
+Glenn J. Tattersall. (2017, December 3). Thermimage: Thermal Image
+Analysis.doi: 10.5281/zenodo.1069704 (URL:
+<http://doi.org/10.5281/zenodo.1069704>), R package, &lt;URL:
+<https://CRAN.R-project.org/package=Thermimage>&gt;.
+[![DOI](https://zenodo.org/badge/33262273.svg)](https://zenodo.org/badge/latestdoi/33262273)
