@@ -42,6 +42,8 @@ frame = reader.next_frame()
 plot_thermal(frame)
 ```
 
+![cat](https://github.com/katierupp/csq/blob/main/examples/frame1.png?raw=true)
+
 ## References 
 This project was inspired by the Thermimage package, which allows for FLIR thermal image analysis in R: 
 
