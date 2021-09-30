@@ -53,6 +53,7 @@ max_temps = []
 while reader.next_frame() is not None: 
     frame = reader.next_frame()
     max_temps.append(np.max(frame))
+    # other operations for current frame
 ```
 However, there may be cases when you only need to extract thermal data from only certain frames within a video. For faster processing, you can use the ```skip_frame()``` function to skip over any frames that you do not need any thermal data from. Perhaps we only want to plot the 200th frame:
 
