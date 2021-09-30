@@ -41,8 +41,30 @@ def plot_thermal(frame):
 frame = reader.next_frame()
 plot_thermal(frame)
 ```
-
 ![cat](https://github.com/katierupp/csq/blob/main/examples/frame1.png?raw=true)
+
+When analyzing thermal imaging data, you may want to perform a certain operation on each frame. For example, maybe you want to extract the maximum temperature at each frame in the video. To determine this, you can simply create a loop to continuously call the ```next_frame()``` function:
+
+```python
+import numpy as np
+
+max_temps = []
+
+while reader.next_frame() is not None: 
+    frame = reader.next_frame()
+    max_temps.append(np.max(frame))
+```
+However, there may be cases when you only need to extract thermal data from only certain frames within a video. For faster processing, you can use the ```skip_frame()``` function to skip over any frames that you do not need any thermal data from. Perhaps we only want to plot the 200th frame:
+
+```python
+fnum = 0
+while fnum < 200: 
+    frame = reader.skip_frame()
+    fnum+=1
+  
+frame = reader.next_frame()
+plot_thermal(frame)
+```
 
 ## References 
 This project was inspired by the Thermimage package, which allows for FLIR thermal image analysis in R: 
